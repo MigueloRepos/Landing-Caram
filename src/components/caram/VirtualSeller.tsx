@@ -39,7 +39,7 @@ export function VirtualSeller() {
     <>
       <button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-24 left-4 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-brand text-brand-foreground shadow-card transition-all duration-300 hover:scale-110 md:bottom-8 lg:left-10"
+        className="fixed bottom-24 right-4 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-brand text-brand-foreground shadow-card transition-all duration-300 hover:scale-110 md:bottom-8 lg:right-10"
         aria-label="Hablar con asistente"
       >
         <MessageCircle className="h-7 w-7" />
@@ -51,7 +51,7 @@ export function VirtualSeller() {
             initial={{ opacity: 0, y: 50, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 50, scale: 0.95 }}
-            className="fixed bottom-40 left-4 right-4 z-50 flex h-[500px] flex-col overflow-hidden rounded-2xl bg-card shadow-card md:bottom-24 md:left-8 md:w-96 lg:left-10"
+            className="fixed bottom-40 left-4 right-4 z-50 flex h-[500px] flex-col overflow-hidden rounded-2xl bg-card shadow-card md:bottom-24 md:left-auto md:right-8 md:w-96 lg:right-10"
           >
             <div className="flex items-center justify-between bg-primary p-4 text-primary-foreground">
               <div className="flex items-center gap-2">

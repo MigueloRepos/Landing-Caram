@@ -1,4 +1,4 @@
-import { Users, PartyPopper, Backpack, CalendarDays } from "lucide-react";
+import { Users, PartyPopper, CalendarDays } from "lucide-react";
 import cups from "@/assets/cups-8oz.jpg";
 import tub from "@/assets/tub-4l.jpg";
 import { Reveal } from "./Reveal";
@@ -18,20 +18,6 @@ const combos = [
     price: "$26.00",
     image: tub,
   },
-  {
-    icon: Backpack,
-    name: "Combo escolar",
-    details: ["10 vasos 8oz", "(sabores surtidos)", "Ideal para compartir"],
-    price: "$15.00",
-    image: cups,
-  },
-  {
-    icon: CalendarDays,
-    name: "Combo fin de semana",
-    details: ["1 Tina 4.5L", "+ 2 vasos 8oz", "El plan perfecto"],
-    price: "$11.00",
-    image: cups,
-  },
 ];
 
 export function Combos() {
@@ -45,7 +31,7 @@ export function Combos() {
           <p className="mt-3 text-muted-foreground">Ahorra más al compartir</p>
         </Reveal>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 grid gap-6 sm:grid-cols-2">
           {combos.map((combo, i) => (
             <Reveal
               key={combo.name}

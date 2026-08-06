@@ -7,7 +7,6 @@ import { Birthday } from "@/components/caram/Birthday";
 import { AboutUs } from "@/components/caram/AboutUs";
 import { Testimonials } from "@/components/caram/Testimonials";
 import { FinalCta } from "@/components/caram/FinalCta";
-import { FloatingWhatsApp } from "@/components/caram/FloatingWhatsApp";
 import { MobileNav } from "@/components/caram/MobileNav";
 import { VirtualSeller } from "@/components/caram/VirtualSeller";
 
@@ -42,7 +41,6 @@ function Index() {
         <Testimonials />
       </main>
       <FinalCta />
-      <FloatingWhatsApp />
       <VirtualSeller />
       <MobileNav />
     </div>
