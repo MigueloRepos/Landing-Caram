@@ -31,15 +31,27 @@ export function Hero() {
       className="relative overflow-hidden pt-28 pb-16 sm:pt-32 lg:pt-40 lg:pb-24"
     >
       <div
-        className="sparkle-field pointer-events-none absolute inset-0 opacity-70"
+        className="sparkle-field pointer-events-none absolute inset-0 opacity-70 z-0"
         aria-hidden="true"
       />
+
+      {/* Mobile Parallax Background */}
+      <motion.div
+        style={{ y: useTransform(scrollYProgress, [0, 1], ["0%", "30%"]) }}
+        className="absolute inset-x-0 -top-[20%] -bottom-[20%] z-0 lg:hidden"
+        aria-hidden="true"
+      >
+        <img src={heroImage} alt="" className="h-full w-full object-cover opacity-20" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/80 to-background" />
+      </motion.div>
+
       <div
-        className="pointer-events-none absolute top-[-10%] right-[-5%] h-[520px] w-[520px] rounded-full opacity-40 blur-3xl"
+        className="pointer-events-none absolute top-[-10%] right-[-5%] h-[520px] w-[520px] rounded-full opacity-40 blur-3xl z-0"
         style={{ background: "radial-gradient(circle, var(--brand), transparent 65%)" }}
         aria-hidden="true"
       />
-      <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:gap-8">
+
+      <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:gap-8">
         <motion.div style={{ y: textY, opacity: textOpacity }} className="min-w-0">
           <Reveal>
             <span className="inline-block rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-[0.7rem] font-semibold tracking-[0.25em] text-primary uppercase">
@@ -75,7 +87,7 @@ export function Hero() {
             </div>
           </Reveal>
         </motion.div>
-        <motion.div style={{ y: imageY }} className="min-w-0">
+        <motion.div style={{ y: imageY }} className="hidden min-w-0 lg:block">
           <Reveal delay={150}>
             <div className="relative mx-auto max-w-lg">
               <div

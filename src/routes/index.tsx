@@ -9,6 +9,7 @@ import { Testimonials } from "@/components/caram/Testimonials";
 import { FinalCta } from "@/components/caram/FinalCta";
 import { MobileNav } from "@/components/caram/MobileNav";
 import { VirtualSeller } from "@/components/caram/VirtualSeller";
+import { LocationGreeting } from "@/components/caram/LocationGreeting";
 
 const title = "Caram Helados | Helados artesanales en Puerto Padre";
 const description =
@@ -31,6 +32,7 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <div className="min-h-screen pb-16 lg:pb-0">
+      <LocationGreeting />
       <Header />
       <main>
         <Hero />

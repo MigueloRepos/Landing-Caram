@@ -1,0 +1,94 @@
+import { useState, useEffect } from "react";
+import { useMutation } from "@tanstack/react-query";
+import { motion, AnimatePresence } from "framer-motion";
+import { MapPin, X } from "lucide-react";
+import { generateGreetingFn } from "@/server-functions/greeting";
+
+export function LocationGreeting() {
+  const [greeting, setGreeting] = useState<string | null>(null);
+  const [isVisible, setIsVisible] = useState(true);
+
+  const greetingMutation = useMutation({
+    mutationFn: async (location: { city: string; country: string }) => {
+      const res = await generateGreetingFn({ data: location });
+      return res.message;
+    },
+    onSuccess: (message) => {
+      setGreeting(message);
+    },
+  });
+
+  useEffect(() => {
+    async function checkLocation() {
+      try {
+        const res = await fetch("https://ipinfo.io/json");
+        const data = await res.json();
+
+        // Check if outside Puerto Padre (for simplicity, we trigger if country is not CU or city is not Puerto Padre)
+        if (data.country !== "CU" || (data.city && !data.city.includes("Puerto Padre"))) {
+          greetingMutation.mutate({
+            city: data.city || "tu ciudad",
+            country: data.country || "tu país",
+          });
+        }
+      } catch (e) {
+        console.error("Could not fetch location", e);
+      }
+    }
+    checkLocation();
+  }, []);
+
+  if (!greeting) return null;
+
+  return (
+    <AnimatePresence>
+      {isVisible && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="absolute inset-0 bg-background/80 backdrop-blur-sm"
+            onClick={() => setIsVisible(false)}
+          />
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: 20 }}
+            className="relative w-full max-w-lg overflow-hidden rounded-3xl bg-card p-6 text-card-foreground shadow-2xl md:p-8 border border-border"
+          >
+            <div className="flex items-start justify-between gap-4">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+                <MapPin className="h-6 w-6" aria-hidden="true" />
+              </div>
+              <button
+                type="button"
+                className="rounded-full p-2 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                onClick={() => setIsVisible(false)}
+              >
+                <span className="sr-only">Cerrar</span>
+                <X className="h-5 w-5" aria-hidden="true" />
+              </button>
+            </div>
+
+            <div className="mt-4">
+              <h3 className="text-xl font-bold tracking-tight text-foreground sm:text-2xl">
+                ¡Bienvenido a Caram Helados!
+              </h3>
+              <p className="mt-3 text-base leading-relaxed text-muted-foreground">{greeting}</p>
+            </div>
+
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+              <button
+                onClick={() => setIsVisible(false)}
+                className="inline-flex w-full items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-primary/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:w-auto"
+              >
+                Ver catálogo
+              </button>
+            </div>
+          </motion.div>
+        </div>
+      )}
+    </AnimatePresence>
+  );
+}
