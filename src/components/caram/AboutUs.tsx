@@ -1,4 +1,4 @@
-import { Heart, IceCream, Star, Users } from "lucide-react";
+import { IceCream, Users } from "lucide-react";
 import { Reveal } from "./Reveal";
 import heroImage from "@/assets/hero-penguin.jpg";
 
@@ -19,19 +19,6 @@ export function AboutUs() {
               height={800}
               className="relative rounded-3xl shadow-card object-cover h-[400px] w-full"
             />
-            <div className="absolute -bottom-6 -right-6 rounded-2xl bg-card p-6 shadow-card">
-              <div className="flex items-center gap-4">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground">
-                  <Heart size={24} />
-                </div>
-                <div>
-                  <p className="text-sm font-bold uppercase tracking-wider text-muted-foreground">
-                    Hecho con
-                  </p>
-                  <p className="text-xl font-extrabold text-foreground">Pasión Artesanal</p>
-                </div>
-              </div>
-            </div>
           </Reveal>
 
           <Reveal delay={150}>

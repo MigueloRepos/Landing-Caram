@@ -48,13 +48,15 @@ export function LocationGreeting() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            transition={{ duration: 0.4 }}
             className="absolute inset-0 bg-background/80 backdrop-blur-sm"
             onClick={() => setIsVisible(false)}
           />
           <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+            initial={{ opacity: 0, scale: 0.96, y: 16 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: 20 }}
+            exit={{ opacity: 0, scale: 0.96, y: 16 }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             className="relative w-full max-w-lg overflow-hidden rounded-[2.5rem] bg-white/60 p-6 text-slate-900 shadow-[0_8px_40px_rgba(0,0,0,0.12)] backdrop-blur-3xl backdrop-saturate-200 border border-white/50 dark:border-white/10 dark:bg-zinc-900/60 dark:text-zinc-50 md:p-8"
           >
             <div className="absolute inset-0 bg-gradient-to-tr from-white/30 to-transparent opacity-50 dark:from-white/5" />
@@ -83,8 +85,14 @@ export function LocationGreeting() {
 
             <div className="relative mt-6 flex flex-col gap-3 sm:flex-row">
               <button
-                onClick={() => setIsVisible(false)}
-                className="inline-flex w-full items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:bg-primary/90 hover:shadow-primary/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:w-auto"
+                onClick={() => {
+                  setIsVisible(false);
+                  const elem = document.getElementById("productos");
+                  if (elem) {
+                    elem.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
+                className="inline-flex w-full items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:bg-primary/90 hover:shadow-primary/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:w-auto cursor-pointer"
               >
                 Ver catálogo
               </button>
