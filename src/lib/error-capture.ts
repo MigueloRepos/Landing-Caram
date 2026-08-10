@@ -64,9 +64,17 @@ console.error = (...args: unknown[]) => {
 
 if (typeof globalThis.addEventListener === "function") {
   globalThis.addEventListener("error", (event) => record((event as ErrorEvent).error ?? event));
-  globalThis.addEventListener("unhandledrejection", (event) =>
-    record((event as PromiseRejectionEvent).reason),
-  );
+  globalThis.addEventListener("unhandledrejection", (event) => {
+    const reason = (event as PromiseRejectionEvent).reason;
+    if (
+      reason &&
+      (reason.name === "InvalidStateError" ||
+        (typeof reason.message === "string" && reason.message.includes("Transition was aborted")))
+    ) {
+      return;
+    }
+    record(reason);
+  });
 }
 
 export function consumeLastCapturedError(): unknown {

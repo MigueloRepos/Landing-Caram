@@ -1,10 +1,11 @@
-import { Home, IceCream, Gift, Phone } from "lucide-react";
+import { Home, IceCream, Gift, PartyPopper, Phone } from "lucide-react";
 import { waLink, ORDER_MESSAGE } from "@/lib/caram";
 
 const navItems = [
   { icon: Home, label: "Inicio", href: "#inicio" },
   { icon: IceCream, label: "Productos", href: "#productos" },
   { icon: Gift, label: "Combos", href: "#combos" },
+  { icon: PartyPopper, label: "Cumpleaños", href: "#cumpleanos" },
   { icon: Phone, label: "Pedir", href: waLink(ORDER_MESSAGE), external: true },
 ];
 
@@ -18,10 +19,12 @@ export function MobileNav() {
             href={item.href}
             target={item.external ? "_blank" : undefined}
             rel={item.external ? "noopener noreferrer" : undefined}
-            className="flex flex-col items-center justify-center gap-1.5 rounded-xl p-2 text-foreground/80 transition-colors hover:text-primary active:bg-primary/10"
+            className="flex flex-col items-center justify-center gap-1 rounded-xl px-1 py-1.5 text-foreground/80 transition-colors hover:text-primary active:bg-primary/10"
           >
-            <item.icon size={20} strokeWidth={2.5} />
-            <span className="text-[9px] font-bold tracking-widest uppercase">{item.label}</span>
+            <item.icon size={19} strokeWidth={2.25} />
+            <span className="text-[8.5px] font-bold tracking-wider uppercase whitespace-nowrap">
+              {item.label}
+            </span>
           </a>
         ))}
       </div>

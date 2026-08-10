@@ -18,6 +18,8 @@ export function LocationGreeting() {
     },
   });
 
+  const mutateGreeting = greetingMutation.mutate;
+
   useEffect(() => {
     async function checkLocation() {
       try {
@@ -26,7 +28,7 @@ export function LocationGreeting() {
 
         // Check if outside Puerto Padre (for simplicity, we trigger if country is not CU or city is not Puerto Padre)
         if (data.country !== "CU" || (data.city && !data.city.includes("Puerto Padre"))) {
-          greetingMutation.mutate({
+          mutateGreeting({
             city: data.city || "tu ciudad",
             country: data.country || "tu país",
           });
@@ -36,7 +38,7 @@ export function LocationGreeting() {
       }
     }
     checkLocation();
-  }, []);
+  }, [mutateGreeting]);
 
   if (!greeting) return null;
 

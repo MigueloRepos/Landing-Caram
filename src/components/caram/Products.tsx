@@ -48,11 +48,17 @@ export function Products() {
       setSelectedProduct(product);
       return;
     }
-    document.startViewTransition(() => {
-      flushSync(() => {
-        setSelectedProduct(product);
+    try {
+      const transition = document.startViewTransition(() => {
+        flushSync(() => {
+          setSelectedProduct(product);
+        });
       });
-    });
+      transition.finished.catch(() => {});
+      transition.ready.catch(() => {});
+    } catch {
+      setSelectedProduct(product);
+    }
   };
 
   const closeProduct = () => {
@@ -60,11 +66,17 @@ export function Products() {
       setSelectedProduct(null);
       return;
     }
-    document.startViewTransition(() => {
-      flushSync(() => {
-        setSelectedProduct(null);
+    try {
+      const transition = document.startViewTransition(() => {
+        flushSync(() => {
+          setSelectedProduct(null);
+        });
       });
-    });
+      transition.finished.catch(() => {});
+      transition.ready.catch(() => {});
+    } catch {
+      setSelectedProduct(null);
+    }
   };
 
   return (
