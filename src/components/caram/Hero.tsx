@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { Heart, Leaf, Snowflake, Ban, Truck } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import heroImage from "@/assets/hero-penguin.jpg";
+import heroImage from "@/assets/images/regenerated_image_1786328359400.png";
 import { WhatsAppButton } from "./WhatsAppButton";
 import { Reveal } from "./Reveal";
 import { ORDER_MESSAGE, waLink } from "@/lib/caram";

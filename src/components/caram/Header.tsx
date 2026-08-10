@@ -22,10 +22,25 @@ export function Header() {
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 12);
+
+      const scrollPosition = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const fullHeight = document.documentElement.scrollHeight;
+
+      if (scrollPosition + windowHeight >= fullHeight - 80) {
+        setActive("#contacto");
+        return;
+      }
+
       let current = "#inicio";
       for (const link of links) {
         const el = document.querySelector(link.href);
-        if (el && el.getBoundingClientRect().top <= 140) current = link.href;
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= 200) {
+            current = link.href;
+          }
+        }
       }
       setActive(current);
     };
@@ -51,10 +66,11 @@ export function Header() {
             <a
               key={link.href}
               href={link.href}
+              onClick={() => setActive(link.href)}
               className={cn(
-                "relative py-1 text-sm font-medium transition-colors",
+                "relative py-1 text-sm font-medium transition-colors cursor-pointer",
                 active === link.href
-                  ? "text-primary after:absolute after:inset-x-0 after:-bottom-0.5 after:h-0.5 after:rounded-full after:bg-primary"
+                  ? "text-primary font-semibold after:absolute after:inset-x-0 after:-bottom-0.5 after:h-0.5 after:rounded-full after:bg-primary"
                   : "text-foreground/80 hover:text-primary",
               )}
             >
@@ -86,10 +102,15 @@ export function Header() {
               <a
                 key={link.href}
                 href={link.href}
-                onClick={() => setOpen(false)}
+                onClick={() => {
+                  setActive(link.href);
+                  setOpen(false);
+                }}
                 className={cn(
                   "rounded-lg px-2 py-3 text-sm font-medium transition-colors",
-                  active === link.href ? "text-primary" : "text-foreground/85 hover:text-primary",
+                  active === link.href
+                    ? "text-primary font-semibold bg-primary/10"
+                    : "text-foreground/85 hover:text-primary",
                 )}
               >
                 {link.label}
