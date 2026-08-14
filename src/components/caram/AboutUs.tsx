@@ -45,7 +45,7 @@ export function AboutUs() {
             </div>
 
             <div className="mt-8 grid grid-cols-2 gap-6">
-              <div className="flex flex-col gap-2">
+              <Reveal delay={250} className="flex flex-col gap-2">
                 <span className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
                   <IceCream size={20} />
                 </span>
@@ -53,8 +53,8 @@ export function AboutUs() {
                 <p className="text-sm text-muted-foreground">
                   Textura y sabor inigualables en cada cucharada.
                 </p>
-              </div>
-              <div className="flex flex-col gap-2">
+              </Reveal>
+              <Reveal delay={350} className="flex flex-col gap-2">
                 <span className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
                   <Users size={20} />
                 </span>
@@ -62,7 +62,7 @@ export function AboutUs() {
                 <p className="text-sm text-muted-foreground">
                   Formatos ideales para familias y celebraciones.
                 </p>
-              </div>
+              </Reveal>
             </div>
           </Reveal>
         </div>

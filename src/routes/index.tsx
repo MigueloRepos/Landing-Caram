@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Header } from "@/components/caram/Header";
 import { Hero } from "@/components/caram/Hero";
+import { WhyChooseUs } from "@/components/caram/WhyChooseUs";
 import { Products } from "@/components/caram/Products";
 import { Combos } from "@/components/caram/Combos";
 import { Birthday } from "@/components/caram/Birthday";
@@ -36,6 +37,7 @@ function Index() {
       <Header />
       <main>
         <Hero />
+        <WhyChooseUs />
         <Products />
         <Combos />
         <Birthday />

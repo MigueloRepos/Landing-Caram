@@ -45,7 +45,10 @@ export function FinalCta() {
       </div>
 
       <div className="relative mx-auto mt-14 max-w-7xl border-t border-border px-4 pt-6 sm:px-6">
-        <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-sm text-muted-foreground sm:justify-between">
+        <Reveal
+          delay={150}
+          className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-sm text-muted-foreground sm:justify-between"
+        >
           <span className="inline-flex items-center gap-2">
             <MapPin size={16} className="shrink-0 text-primary" />
             Puerto Padre, Las Tunas
@@ -64,7 +67,7 @@ export function FinalCta() {
             @heladoscaram
           </a>
           <Logo small />
-        </div>
+        </Reveal>
       </div>
     </Reveal>
   );

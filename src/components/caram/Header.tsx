@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 
 const links = [
   { label: "Inicio", href: "#inicio" },
+  { label: "¿Por qué Caram?", href: "#elegirnos" },
   { label: "Productos", href: "#productos" },
   { label: "Combos", href: "#combos" },
   { label: "Cumpleaños", href: "#cumpleanos" },
