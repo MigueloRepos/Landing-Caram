@@ -89,7 +89,8 @@
   --whatsapp: oklch(0.76 0.19 148);
   --whatsapp-foreground: oklch(0.22 0.05 150);
 
-  --gradient-night: radial-gradient(
+  --gradient-night:
+    radial-gradient(
       120% 80% at 70% 10%,
       color-mix(in oklab, var(--brand) 14%, transparent),
       transparent 60%
@@ -247,4 +248,3 @@
     transform: translateY(0);
   }
 }
-

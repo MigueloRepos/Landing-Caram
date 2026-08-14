@@ -63,12 +63,12 @@ export function LocationGreeting() {
           >
             <div className="absolute inset-0 bg-gradient-to-tr from-white/30 to-transparent opacity-50 dark:from-white/5" />
             <div className="relative flex items-start justify-between gap-4">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary/20 text-primary backdrop-blur-md shadow-inner">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#0C8EEF]/20 text-[#0C8EEF] backdrop-blur-md shadow-inner">
                 <MapPin className="h-6 w-6" aria-hidden="true" />
               </div>
               <button
                 type="button"
-                className="rounded-full p-2 text-slate-600 transition-colors hover:bg-black/5 hover:text-slate-900 dark:text-zinc-400 dark:hover:bg-white/10 dark:hover:text-zinc-100"
+                className="rounded-full p-2 text-[#072B79] transition-colors hover:bg-black/5 hover:text-[#072B79]"
                 onClick={() => setIsVisible(false)}
               >
                 <span className="sr-only">Cerrar</span>
@@ -77,10 +77,10 @@ export function LocationGreeting() {
             </div>
 
             <div className="relative mt-4">
-              <h3 className="text-xl font-bold tracking-tight sm:text-2xl">
+              <h3 className="text-xl font-black tracking-tight text-[#072B79] sm:text-2xl">
                 Le damos la bienvenida a Caram Helados
               </h3>
-              <p className="mt-3 text-base leading-relaxed text-slate-700 dark:text-zinc-300">
+              <p className="mt-3 text-base leading-relaxed text-[#072B79]/85 font-medium">
                 {greeting}
               </p>
             </div>
@@ -94,7 +94,7 @@ export function LocationGreeting() {
                     elem.scrollIntoView({ behavior: "smooth" });
                   }
                 }}
-                className="inline-flex w-full items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:bg-primary/90 hover:shadow-primary/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:w-auto cursor-pointer"
+                className="inline-flex w-full items-center justify-center rounded-full bg-[#F9B40E] px-6 py-3 text-sm font-black text-[#072B79] shadow-lg transition-all hover:bg-[#e0a10a] sm:w-auto cursor-pointer"
               >
                 Ver catálogo
               </button>

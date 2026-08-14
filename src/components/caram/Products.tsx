@@ -87,13 +87,16 @@ export function Products() {
         .product-title-active { view-transition-name: product-title; }
       `}</style>
 
-      <Reveal as="section" id="productos" className="py-16 lg:py-24">
+      <Reveal as="section" id="productos" className="bg-[#FAF7F2] py-16 lg:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <Reveal className="text-center">
-            <h2 className="text-3xl font-extrabold tracking-tight uppercase sm:text-4xl">
-              Nuestros <span className="text-primary">productos</span>
+            <span className="inline-block rounded-full bg-[#F9B40E] px-4 py-1.5 text-xs font-bold tracking-wider text-[#072B79] uppercase">
+              Ofertas Especiales
+            </span>
+            <h2 className="mt-3 text-3xl font-black tracking-tight uppercase text-[#072B79] sm:text-4xl">
+              Nuestros <span className="text-[#0C8EEF]">productos</span>
             </h2>
-            <p className="mt-3 text-muted-foreground">Calidad artesanal en cada porción</p>
+            <p className="mt-2 text-[#072B79]/80 font-medium">Calidad artesanal en cada porción</p>
           </Reveal>
 
           <div className="mt-12 grid gap-8 md:grid-cols-2">
@@ -103,33 +106,39 @@ export function Products() {
                 <Reveal key={product.title} as="article" delay={i * 120} className="group">
                   <button
                     onClick={() => openProduct(product)}
-                    className={`w-full text-left overflow-hidden rounded-4xl bg-card text-card-foreground shadow-card transition-transform duration-300 hover:-translate-y-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary ${isActive ? "opacity-0" : ""}`}
+                    className={`w-full text-left overflow-hidden rounded-4xl bg-white text-[#072B79] border border-[#072B79]/10 shadow-lg transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0C8EEF] ${isActive ? "opacity-0" : ""}`}
                     style={isActive ? { viewTransitionName: "product-card" } : {}}
                   >
-                    <div className="overflow-hidden">
+                    <div className="relative overflow-hidden bg-[#FAF7F2]">
+                      <span className="absolute top-4 left-4 z-10 rounded-full bg-[#F9B40E] px-3.5 py-1 text-xs font-black text-[#072B79] shadow-sm uppercase tracking-wide">
+                        Especial Caram
+                      </span>
                       <img
                         src={product.image}
                         alt={product.alt}
                         width={1024}
                         height={768}
                         loading="lazy"
-                        className="h-56 w-full object-cover transition-transform duration-500 group-hover:scale-105 sm:h-72"
+                        className="h-56 w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.06] sm:h-72"
                         style={isActive ? { viewTransitionName: "product-image" } : {}}
                       />
                     </div>
                     <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 p-6 sm:p-8">
                       <div className="min-w-0">
                         <h3
-                          className="text-xl font-extrabold tracking-tight uppercase sm:text-2xl"
+                          className="text-xl font-black tracking-tight uppercase text-[#072B79] transition-colors duration-250 group-hover:text-[#0C8EEF] sm:text-2xl"
                           style={isActive ? { viewTransitionName: "product-title" } : {}}
                         >
                           {product.title}
                         </h3>
-                        <p className="mt-2 text-sm text-card-foreground/75">{product.text}</p>
+                        <p className="mt-2 text-sm text-[#072B79]/75 font-medium">{product.text}</p>
+                        <span className="mt-3 inline-flex items-center gap-1.5 text-xs font-extrabold text-[#0C8EEF] transition-transform duration-250 group-hover:translate-x-1">
+                          Ver detalles y sabores &rarr;
+                        </span>
                       </div>
-                      <div className="flex shrink-0 flex-col items-center rounded-2xl bg-primary px-4 py-3 leading-none text-primary-foreground shadow-soft">
-                        <span className="text-xl font-extrabold sm:text-2xl">{product.price}</span>
-                        <span className="mt-1 text-[0.6rem] font-semibold tracking-[0.2em] uppercase">
+                      <div className="flex shrink-0 flex-col items-center rounded-2xl bg-[#0C8EEF] px-5 py-3.5 leading-none text-white shadow-md transition-transform duration-250 group-hover:scale-105">
+                        <span className="text-2xl font-black sm:text-3xl">{product.price}</span>
+                        <span className="mt-1 text-[0.65rem] font-bold tracking-[0.2em] uppercase text-white/90">
                           C/U
                         </span>
                       </div>
@@ -146,16 +155,16 @@ export function Products() {
       {selectedProduct && (
         <div className="fixed inset-0 z-50 flex items-center justify-center px-4 pt-16 pb-4 sm:p-6">
           <div
-            className="absolute inset-0 bg-background/80 backdrop-blur-sm"
+            className="absolute inset-0 bg-[#072B79]/60 backdrop-blur-sm"
             onClick={closeProduct}
           />
           <div
-            className="relative z-10 w-full max-w-2xl max-h-[90vh] overflow-y-auto overflow-x-hidden rounded-4xl bg-card text-card-foreground shadow-card scrollbar-hide"
+            className="relative z-10 w-full max-w-2xl max-h-[90vh] overflow-y-auto overflow-x-hidden rounded-4xl bg-white text-[#072B79] shadow-2xl border border-[#072B79]/10 scrollbar-hide"
             style={{ viewTransitionName: "product-card" }}
           >
             <button
               onClick={closeProduct}
-              className="absolute right-4 top-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-black/20 text-white backdrop-blur-md transition-colors hover:bg-black/40"
+              className="absolute right-4 top-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-black/20 text-white backdrop-blur-md transition-colors hover:bg-black/40 cursor-pointer"
             >
               <X size={20} />
             </button>
@@ -167,18 +176,18 @@ export function Products() {
             />
             <div className="p-6 sm:p-10">
               <h3
-                className="text-3xl font-extrabold tracking-tight uppercase sm:text-4xl"
+                className="text-3xl font-extrabold tracking-tight uppercase text-[#072B79] sm:text-4xl"
                 style={{ viewTransitionName: "product-title" }}
               >
                 {selectedProduct.title}
               </h3>
-              <p className="mt-4 text-base sm:text-lg text-card-foreground/80">
+              <p className="mt-4 text-base sm:text-lg text-[#072B79]/80 font-medium">
                 {selectedProduct.text}
               </p>
 
-              <div className="mt-8 border-t border-border pt-6">
-                <h4 className="flex items-center gap-2 text-lg font-bold text-foreground">
-                  <IceCream className="text-primary" size={24} />
+              <div className="mt-8 border-t border-[#072B79]/10 pt-6">
+                <h4 className="flex items-center gap-2 text-lg font-bold text-[#072B79]">
+                  <IceCream className="text-[#0C8EEF]" size={24} />
                   Sabores Disponibles
                 </h4>
 
@@ -186,19 +195,18 @@ export function Products() {
                   {flavorsLoading ? (
                     <div className="flex animate-pulse gap-2 flex-wrap">
                       {[1, 2, 3, 4].map((i) => (
-                        <div key={i} className="h-8 w-24 rounded-full bg-muted"></div>
+                        <div key={i} className="h-8 w-24 rounded-full bg-[#FAF7F2]"></div>
                       ))}
                     </div>
                   ) : flavors && flavors.length > 0 ? (
                     <ul className="flex flex-wrap gap-2">
                       {flavors.map((f, i) => {
-                        // Adjust depending on the actual column name in Supabase
                         const flavorName =
                           f.taste || f.name || f.flavor || f.sabor || f.nombre || "Sabor especial";
                         return (
                           <li
                             key={i}
-                            className="rounded-full bg-primary/10 px-4 py-1.5 text-sm font-semibold text-primary"
+                            className="rounded-full bg-[#0C8EEF]/10 border border-[#0C8EEF]/20 px-4 py-1.5 text-sm font-bold text-[#0C8EEF]"
                           >
                             {flavorName}
                           </li>
@@ -206,7 +214,7 @@ export function Products() {
                       })}
                     </ul>
                   ) : (
-                    <p className="text-sm text-muted-foreground italic">
+                    <p className="text-sm text-[#072B79]/60 italic">
                       No tenemos sabores disponibles por ahora.
                     </p>
                   )}
@@ -215,15 +223,19 @@ export function Products() {
 
               <div className="mt-8 flex flex-wrap items-center justify-between gap-4">
                 <div className="flex flex-col items-start">
-                  <span className="text-sm font-semibold uppercase text-muted-foreground">
+                  <span className="text-xs font-bold uppercase tracking-wider text-[#072B79]/60">
                     Precio
                   </span>
-                  <span className="text-3xl font-extrabold text-primary">
+                  <span className="text-3xl font-black text-[#0C8EEF]">
                     {selectedProduct.price}
                   </span>
                 </div>
 
-                <WhatsAppButton href={waLink(ORDER_MESSAGE)} size="lg">
+                <WhatsAppButton
+                  href={waLink(ORDER_MESSAGE)}
+                  size="lg"
+                  className="bg-[#F9B40E] text-[#072B79] hover:bg-[#e0a10a] font-black shadow-md"
+                >
                   Pedir ahora
                 </WhatsAppButton>
               </div>

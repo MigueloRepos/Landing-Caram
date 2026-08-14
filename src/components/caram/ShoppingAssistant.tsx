@@ -232,15 +232,15 @@ export function ShoppingAssistant() {
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           onClick={() => setIsOpen(true)}
-          className="group relative flex items-center gap-2.5 rounded-full bg-primary px-4 py-3 text-primary-foreground shadow-2xl transition-all duration-300 hover:scale-105 hover:bg-primary/90 focus:outline-none focus:ring-4 focus:ring-primary/30 cursor-pointer"
+          className="group relative flex items-center gap-2.5 rounded-full bg-[#F9B40E] px-4 py-3 text-[#072B79] font-black shadow-2xl transition-all duration-300 hover:scale-105 hover:bg-[#e0a10a] focus:outline-none focus:ring-4 focus:ring-[#F9B40E]/40 cursor-pointer"
           aria-label="Abrir Asistente de Compra"
         >
           <span className="relative flex h-3 w-3">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-amber-400 opacity-75"></span>
-            <span className="relative inline-flex h-3 w-3 rounded-full bg-amber-400"></span>
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#0C8EEF] opacity-75"></span>
+            <span className="relative inline-flex h-3 w-3 rounded-full bg-[#0C8EEF]"></span>
           </span>
-          <Bot className="h-6 w-6 text-primary-foreground transition-transform duration-300 group-hover:rotate-12" />
-          <span className="hidden font-semibold text-sm sm:inline-block">Asistente de Compra</span>
+          <Bot className="h-6 w-6 text-[#072B79] transition-transform duration-300 group-hover:rotate-12" />
+          <span className="hidden font-black text-sm sm:inline-block">Asistente de Compra</span>
         </motion.button>
       </div>
 
@@ -254,7 +254,7 @@ export function ShoppingAssistant() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsOpen(false)}
-              className="absolute inset-0 bg-navy-deep/70 backdrop-blur-md"
+              className="absolute inset-0 bg-[#072B79]/80 backdrop-blur-md"
             />
 
             {/* Modal Card */}
@@ -263,19 +263,19 @@ export function ShoppingAssistant() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ duration: 0.3, ease: "easeOut" }}
-              className="relative flex h-[90vh] max-h-[680px] w-full max-w-2xl flex-col overflow-hidden rounded-3xl border border-white/20 bg-card text-card-foreground shadow-2xl"
+              className="relative flex h-[90vh] max-h-[680px] w-full max-w-2xl flex-col overflow-hidden rounded-4xl border border-[#072B79]/20 bg-white text-[#072B79] shadow-2xl"
             >
               {/* Header */}
-              <div className="flex items-center justify-between border-b border-border bg-navy-deep/90 px-5 py-4 text-white">
+              <div className="flex items-center justify-between border-b border-[#072B79]/10 bg-[#072B79] px-6 py-4 text-white">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-primary text-primary-foreground shadow-md">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[#F9B40E] text-[#072B79] shadow-md font-bold">
                     <ShoppingBag className="h-5 w-5" />
                   </div>
                   <div>
-                    <h2 className="text-base font-bold tracking-wide sm:text-lg">
+                    <h2 className="text-base font-black tracking-wide sm:text-lg">
                       Asistente de Compra
                     </h2>
-                    <p className="text-xs text-white/70">
+                    <p className="text-xs text-white/80 font-medium">
                       Helados Caram • Guía interactiva de pedidos
                     </p>
                   </div>

@@ -32,12 +32,12 @@ export function WhatsAppButton({
       target="_blank"
       rel="noopener noreferrer"
       className={cn(
-        "inline-flex shrink-0 items-center justify-center rounded-full bg-whatsapp font-semibold text-whatsapp-foreground shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:brightness-105 focus-visible:ring-2 focus-visible:ring-whatsapp focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none",
+        "group inline-flex shrink-0 items-center justify-center rounded-full bg-whatsapp font-bold text-whatsapp-foreground shadow-md transition-all duration-250 hover:scale-[1.03] active:scale-[0.97] hover:shadow-lg focus-visible:ring-2 focus-visible:ring-whatsapp focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none cursor-pointer",
         sizes[size],
         className,
       )}
     >
-      <WhatsAppIcon className="h-[1.15em] w-[1.15em]" />
+      <WhatsAppIcon className="h-[1.15em] w-[1.15em] transition-transform duration-250 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:scale-110" />
       <span>{children}</span>
     </a>
   );
