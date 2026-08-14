@@ -4,7 +4,11 @@ import heroImage from "@/assets/hero-penguin.jpg";
 
 export function AboutUs() {
   return (
-    <section id="nosotros" className="relative overflow-hidden bg-navy-deep/40 py-16 lg:py-24">
+    <Reveal
+      as="section"
+      id="nosotros"
+      className="relative overflow-hidden bg-navy-deep/40 py-16 lg:py-24"
+    >
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
           <Reveal className="relative mx-auto max-w-lg lg:mx-0">
@@ -63,6 +67,6 @@ export function AboutUs() {
           </Reveal>
         </div>
       </div>
-    </section>
+    </Reveal>
   );
 }

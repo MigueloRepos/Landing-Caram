@@ -8,7 +8,7 @@ export const generateGreetingFn = createServerFn({ method: "POST" })
       const apiKey = process.env.GEMINI_API_KEY;
       if (!apiKey) {
         return {
-          message: `¡Hola desde Puerto Padre! Vemos que nos visitas desde ${data.city}, ${data.country}. Si estás de visita, pasa por nuestras tiendas. Si tienes familiares o amigos aquí, envíales un dulce regalo, ¡acortamos distancias! Pagos desde el exterior vía Zelle disponibles.`,
+          message: `Le saludamos desde Puerto Padre. Observamos que nos visita desde ${data.city}, ${data.country}. Le invitamos cordialmente a conocer nuestras instalaciones o a realizar un pedido para sus allegados en Puerto Padre. Contamos con facilidades de pago internacional vía Zelle.`,
         };
       }
       const ai = new GoogleGenAI({
@@ -22,18 +22,22 @@ export const generateGreetingFn = createServerFn({ method: "POST" })
 
       const response = await ai.models.generateContent({
         model: "gemini-3.1-flash-lite",
-        contents: `El cliente está visitando la página desde ${data.city}, ${data.country}. Genera un mensaje corto (1-2 oraciones) y amigable invitándolo a visitar nuestras tiendas si está en la ciudad, o a realizar un pedido desde el exterior para un familiar, amigo o hijo en Puerto Padre, Las Tunas (Cuba), acortando las distancias. Menciona que el pago desde el exterior se realiza vía Zelle.`,
+        contents: `El cliente está visitando la página desde ${data.city}, ${data.country}. Genera un mensaje breve (1-2 oraciones) y formal dándole la bienvenida e invitándolo respetuosamente a visitar nuestras tiendas o a enviar un pedido de helados a sus familiares o allegados en Puerto Padre, Las Tunas (Cuba). Mencione que disponemos de pagos desde el exterior vía Zelle.`,
         config: {
           systemInstruction:
-            "Eres el representante de ventas de Caram Helados. Escribe en un tono cálido, cubano, emotivo y directo.",
+            "Eres un representante formal, cortés y respetuoso de Caram Helados. Dirígete siempre al usuario de 'usted', con un lenguaje distinguido y servicial.",
         },
       });
 
-      return { message: response.text || "¡Hola! Gracias por visitarnos." };
+      return {
+        message:
+          response.text ||
+          "Le damos la bienvenida a nuestro portal oficial. Es un honor atenderle.",
+      };
     } catch (e) {
       console.error(e);
       return {
-        message: `¡Hola desde Puerto Padre! Vemos que nos visitas desde ${data.city}. Puedes pedir un helado para tus familiares en Cuba y pagar por Zelle.`,
+        message: `Le saludamos desde Puerto Padre. Observamos que nos visita desde ${data.city}. Puede solicitar helados para sus familiares en Cuba y realizar su pago vía Zelle.`,
       };
     }
   });

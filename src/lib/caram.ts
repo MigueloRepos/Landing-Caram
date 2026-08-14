@@ -6,5 +6,7 @@ export function waLink(message: string) {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 }
 
-export const ORDER_MESSAGE = "Hola, quiero hacer un pedido de helados Caram";
-export const BIRTHDAY_MESSAGE = "Hola, quiero cotizar un pedido para cumpleaños";
+export const ORDER_MESSAGE =
+  "Estimados Sres. de Helados Caram, les saludo cordialmente. Deseo realizar un pedido de helados.";
+export const BIRTHDAY_MESSAGE =
+  "Estimados Sres. de Helados Caram, les saludo cordialmente. Deseo solicitar una cotización para un evento de cumpleaños.";

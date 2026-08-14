@@ -23,7 +23,7 @@ const testimonials = [
 
 export function Testimonials() {
   return (
-    <section className="bg-navy-deep/60 py-16 lg:py-24">
+    <Reveal as="section" className="bg-navy-deep/60 py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <Reveal className="text-center">
           <h2 className="text-3xl font-extrabold tracking-tight uppercase sm:text-4xl">
@@ -53,6 +53,6 @@ export function Testimonials() {
           ))}
         </div>
       </div>
-    </section>
+    </Reveal>
   );
 }

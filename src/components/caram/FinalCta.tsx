@@ -7,7 +7,7 @@ import { INSTAGRAM_URL, ORDER_MESSAGE, waLink } from "@/lib/caram";
 
 export function FinalCta() {
   return (
-    <footer id="contacto" className="relative overflow-hidden pt-16 pb-8 lg:pt-24">
+    <Reveal as="footer" id="contacto" className="relative overflow-hidden pt-16 pb-8 lg:pt-24">
       <div
         className="sparkle-field pointer-events-none absolute inset-0 opacity-60"
         aria-hidden="true"
@@ -66,6 +66,6 @@ export function FinalCta() {
           <Logo small />
         </div>
       </div>
-    </footer>
+    </Reveal>
   );
 }

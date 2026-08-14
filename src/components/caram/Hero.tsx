@@ -55,7 +55,7 @@ export function Hero() {
         <motion.div style={{ y: textY, opacity: textOpacity }} className="min-w-0">
           <Reveal>
             <span className="inline-block rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-[0.7rem] font-semibold tracking-[0.25em] text-primary uppercase">
-              Helados Caram
+              Bienvenido a Helados Caram
             </span>
             <h1 className="mt-6 text-4xl leading-[1.08] font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
               El sabor
@@ -67,8 +67,9 @@ export function Hero() {
               />
             </h1>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              Helados artesanales de alta calidad, cremosos y deliciosos. Hechos con ingredientes
-              seleccionados para endulzar tus mejores momentos.
+              Le damos la bienvenida a Helados Caram. Nos complace ofrecerle helados artesanales
+              elaborados con ingredientes seleccionados de la más alta calidad, garantizando una
+              textura cremosa e inigualable en cada ocasión.
             </p>
             <ul className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
               {features.map(({ icon: Icon, label }) => (

@@ -78,7 +78,7 @@ export function LocationGreeting() {
 
             <div className="relative mt-4">
               <h3 className="text-xl font-bold tracking-tight sm:text-2xl">
-                ¡Bienvenido a Caram Helados!
+                Le damos la bienvenida a Caram Helados
               </h3>
               <p className="mt-3 text-base leading-relaxed text-slate-700 dark:text-zinc-300">
                 {greeting}

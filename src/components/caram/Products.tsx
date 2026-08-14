@@ -87,7 +87,7 @@ export function Products() {
         .product-title-active { view-transition-name: product-title; }
       `}</style>
 
-      <section id="productos" className="py-16 lg:py-24">
+      <Reveal as="section" id="productos" className="py-16 lg:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <Reveal className="text-center">
             <h2 className="text-3xl font-extrabold tracking-tight uppercase sm:text-4xl">
@@ -140,7 +140,7 @@ export function Products() {
             })}
           </div>
         </div>
-      </section>
+      </Reveal>
 
       {/* Expanded Product Modal */}
       {selectedProduct && (

@@ -29,7 +29,7 @@ const items = [
 
 export function Birthday() {
   return (
-    <section id="cumpleanos" className="py-16 lg:py-24">
+    <Reveal as="section" id="cumpleanos" className="py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <Reveal className="overflow-hidden rounded-4xl bg-card text-card-foreground shadow-card">
           <div className="grid gap-0 lg:grid-cols-2">
@@ -73,6 +73,6 @@ export function Birthday() {
           </div>
         </Reveal>
       </div>
-    </section>
+    </Reveal>
   );
 }

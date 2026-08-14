@@ -22,7 +22,7 @@ const combos = [
 
 export function Combos() {
   return (
-    <section id="combos" className="bg-navy-deep/60 py-16 lg:py-24">
+    <Reveal as="section" id="combos" className="bg-navy-deep/60 py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <Reveal className="text-center">
           <h2 className="text-3xl font-extrabold tracking-tight uppercase sm:text-4xl">
@@ -67,6 +67,6 @@ export function Combos() {
           ))}
         </div>
       </div>
-    </section>
+    </Reveal>
   );
 }

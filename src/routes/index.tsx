@@ -8,7 +8,7 @@ import { AboutUs } from "@/components/caram/AboutUs";
 import { Testimonials } from "@/components/caram/Testimonials";
 import { FinalCta } from "@/components/caram/FinalCta";
 import { MobileNav } from "@/components/caram/MobileNav";
-import { VirtualSeller } from "@/components/caram/VirtualSeller";
+import { ShoppingAssistant } from "@/components/caram/ShoppingAssistant";
 import { LocationGreeting } from "@/components/caram/LocationGreeting";
 
 const title = "Caram Helados | Helados artesanales en Puerto Padre";
@@ -43,7 +43,7 @@ function Index() {
         <Testimonials />
       </main>
       <FinalCta />
-      <VirtualSeller />
+      <ShoppingAssistant />
       <MobileNav />
     </div>
   );

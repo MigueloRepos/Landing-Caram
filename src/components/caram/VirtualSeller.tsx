@@ -11,7 +11,7 @@ export function VirtualSeller() {
     {
       role: "assistant",
       content:
-        "¡Hola! Soy tu asistente virtual de Caram Helados. Puedo recomendarte combos o sabores basados en lo que buscas. ¿En qué te puedo ayudar hoy?",
+        "Estimado cliente, le damos la bienvenida a Caram Helados. Soy su asistente virtual y con gusto le orientaré para seleccionar los mejores productos y sabores según sus requerimientos. ¿En qué le puedo asistir el día de hoy?",
     },
   ]);
   const [input, setInput] = useState("");

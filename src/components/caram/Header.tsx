@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Bot } from "lucide-react";
 import { Logo } from "./Logo";
 import { WhatsAppButton } from "./WhatsAppButton";
 import { ORDER_MESSAGE, waLink } from "@/lib/caram";
@@ -18,6 +18,10 @@ export function Header() {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("#inicio");
   const [scrolled, setScrolled] = useState(false);
+
+  const openAssistant = () => {
+    window.dispatchEvent(new CustomEvent("open-shopping-assistant"));
+  };
 
   useEffect(() => {
     const onScroll = () => {
@@ -80,6 +84,15 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={openAssistant}
+            className="inline-flex items-center gap-1.5 rounded-full border border-primary/40 bg-primary/10 px-3.5 py-2 text-xs font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground cursor-pointer"
+          >
+            <Bot size={16} />
+            <span className="hidden md:inline">Asistente de Compra</span>
+          </button>
+
           <WhatsAppButton href={waLink(ORDER_MESSAGE)} className="hidden sm:inline-flex">
             Pedir por WhatsApp
           </WhatsAppButton>
@@ -116,7 +129,18 @@ export function Header() {
                 {link.label}
               </a>
             ))}
-            <WhatsAppButton href={waLink(ORDER_MESSAGE)} className="mt-3 sm:hidden">
+            <button
+              type="button"
+              onClick={() => {
+                setOpen(false);
+                openAssistant();
+              }}
+              className="mt-2 flex items-center justify-center gap-2 rounded-xl bg-primary/10 border border-primary/30 py-2.5 text-xs font-semibold text-primary"
+            >
+              <Bot size={16} />
+              <span>Abrir Asistente de Compra</span>
+            </button>
+            <WhatsAppButton href={waLink(ORDER_MESSAGE)} className="mt-2 sm:hidden">
               Pedir por WhatsApp
             </WhatsAppButton>
           </nav>
